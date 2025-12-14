@@ -30,19 +30,19 @@ function LlistaDeProductes() {
 }
 ```
 
-### Claus (`Keys`)
+## Claus (`Keys`)
 
 * La propietat `key` és un atribut especial que s'ha d'incloure sempre que es crea una llista d'elements.
 * React utilitza aquestes claus per **optimitzar** la gestió i l'**actualització** de la llista.
 
-#### Per què són importants les Claus?
+### Per què són importants les Claus?
 
 * Quan una llista canvia (s'afegeix, s'elimina o es reordena un element), React necessita saber exactament quin element de l'arbre del DOM ha canviat, sense haver de redibuixar tota la llista.
 * Sense una clau estable, React reconstrueix tota l'estructura o bé actualitza el component incorrecte, la qual cosa pot provocar:
   * **Errors de rendiment**: Redibuixar components innecessàriament.
   * **Errors d'Estat**: L'estat d'un camp d'un formulari pot ser transferit incorrectament a un altre element si la llista es reordena.
 
-#### Requisits de les Claus
+### Requisits de les Claus
 
 * **Úniques**: La clau ha de ser única entre els seus germans (dins de la mateixa llista). No cal que sigui única globalment en tota l'aplicació.
 * **Estables**: La clau d'un element no ha de canviar entre renderitzacions. És a dir, si un element s'afegeix a l'array, sempre ha de tenir la mateixa clau.
@@ -71,7 +71,7 @@ productes.map((producte, index) => (
 ))
 ```
 
-### Components i Claus
+## Components i Claus
 
 * En encapsular un element de llista dins d'un component propi, la clau s'ha d'aplicar a l'element de React més extern que es retorna dins de la funció `map()`.
 
