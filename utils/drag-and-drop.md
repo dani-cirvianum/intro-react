@@ -202,7 +202,7 @@ export default function ImageDropZone({ onDrop }) {
         justifyContent: "center",
       }}
     >
-      <p>Deixa aquí la imatge 📥</p>
+      <p>Deixa aquí la imatge</p>
     </div>
   );
 }
@@ -246,7 +246,7 @@ export default function App() {
 }
 ```
 
-### Notes pràctiques
+### Notes
 
 * Les imatges (cat.jpg, dog.jpg, etc.) s'han de posar dins la carpeta `public/` de Vite.
 
