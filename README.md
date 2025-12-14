@@ -1,17 +1,5 @@
 # Introducció React
 
-## Introducció a React
-
-### Objectius
-
-* Aprendre a construir aplicacions React
-* Gestionar l'estat
-* Fer peticions a APIs
-* Components
-* Hooks
-* Peticions
-* Rutes
-
 ### Requisits previs
 
 * Llibreries i coneixements mínims
@@ -23,11 +11,26 @@
   * arrow functions
   * promeses/async
   * etc.
-* React és "JavaScript modern"
+
+{% hint style="info" %}
+Podrem considerar que React és un "JavaScript modern", tot i que aquesta definicio no és del tot correcte.
+{% endhint %}
+
+### Què és React?
+
+* És una biblioteca de Javascript utilitzada per crear interfícies d'usuari interactives i declaratives.
+* Els seus principals punts clau són:
+  * **Components**: La UI es divideix en components reutilitzables i independents.
+  * **Declaracions**: React s'encarrega d'actualitzar la vista quan l'estat de l'aplicació canvia, sense necessitat de manipular directament el DOM.
+  * **DOM Virtual**: S'utilitza un **DOM Virtual** per fer actualitzacions de forma eficient, minimitzant renderitzacions innecessàries.
+  * **Unidireccional**: El flux de dades és de **pare a fill**, fent previsible l'estat de l'aplicació.
+  * **Extensible**: Pot combinar-se amb altres biblioteques o frameworks per gestionar l'estat, rutes o crides a API.
+
+React permet crear aplicacions web **ràpides, escalables i fàcilment mantenibles**, centrant-se en la UI i la reutilització de components.
 
 ### Entorn de treball
 
-* Instal·lar Node i crear un projecte amb Vite.
+* Per aquesta introducció utilitzarem `Node` i `Vite`.
 
 ```bash
 npm create vite@latest my-react-app --template react
@@ -58,67 +61,57 @@ createRoot(document.getElementById('root')).render(<App />)
 * Importem `App` (component principal) i CSS global.
 * Creem el root i renderitzem `<App />` dins l'element amb id `root` de l'index.html.
 
-### JSX
-
-* Sintaxi que permet escriure HTML dins JS
-
-```jsx
-function Hola() {
-  const nom = 'Dani'
-  return <h1>Hola, {nom}!</h1>
-}
-```
-
-[Accedeix a secció JSX](components/jsx.md)
-
 ### [Components](components/components-i-propietats.md#components)
 
-* Són blocs reutilitzables
-* Permeten separar la lògica de la presentació
-* S'utilitzen per crear components funcionals
+Un **component** de React és la unitat bàsica de construcció d'una aplicació React.
 
-```jsx
-// components/Header.jsx
-export default function Header({ title }) {
-  return <header><h1>{title}</h1></header>
-}
-```
+Representa una **part reutilitzable de la interfície d'usuari UI**.
 
-* `Header` és una funció que rep `props` (destructurat a `{ title }`) i retorna JSX.
+Enlloc de crear una pàgina HTML sencera, React divideix la interfície en **peces petites i independents** (components), cadascuna amb la seva pròpia lògica i representació visual.
 
-```jsx
-import Header from './components/Header'
+{% hint style="info" %}
+En React, **tot és un component**: botons, formularis, capçaleres, pàgines senceres, etc.
+{% endhint %}
 
-function App() {
-  return (
-    <div>
-      <Header title="Benvinguts!" />
-      <Header title="Notícies" />
-    </div>
-  )
-}
-```
+#### Per què utilitzar components?
 
-### [Propietats](components/components-i-propietats.md#propietats)
+Els components permeten:
 
-* Paràmetres que passen dades de pare a fill.
-
-```jsx
-function Salutacio({ nom }) {
-  return <p>Hola, {nom}!</p>
-}
-
-// ús:
-<Salutacio nom="Pau" />
-```
-
-* `Salutacio` rep `nom` i renderitza el text.
-* **Exercici** Crear `ProductCard` que rebi un `product` amb `name`, `price` i els mostri
+* Reutilitzar codi
+* Separar responsabilitats
+* Mantenir i escalar millor l'aplicació
+* Facilitar proves i depuració
+* Organitzar la UI de forma modular
 
 ### Hooks
 
-* Són funcions especials que permete utilitzar `estat`, `efectes` i altres funcionalitats avançades de React dins de components funcionals.
-* Hi ha diferents tipus de `Hooks`
+* Són **funcions especials** de React que permeten als components:
+  * tenir **estat**
+  * executar **efectes secundaris**
+  * accedir a **funcionalitats internes** de React
+
+Abans de l'aparició dels Hooks, aquestes funcions només existien als **components**.
+
+Els Hooks permeten "enganxar" funcionalitats de React dintre de funcions o altres components.
+
+#### Per què existeixen?
+
+* Permeten reutilitzar lògica entre components.
+* Fan que els components siguin més petits i llegibles
+* Milloren la separació de responsabilitats
+
+#### A tenir en compte
+
+* Només es poden cridar
+  * dins de components funcionals
+  * dins de "`Custom Hooks`"
+* Sempre s'han de cridar
+  * al **nivell superior** del component
+  * No es poden cridar dintre `If`, `for`, `while`.
+
+#### Alguns tipus de Hooks
+
+* Hi ha diferents tipus de `Hooks` alguns són:  &#x20;
   * [`State`i `useState`](hooks/state-i-usestate.md). **Estat local**. Permeten gestionar l'estat dintre d'un component funcional. Quan es modifica l'estat, el component es torna a renderitzar.
   * [`effect`i `useEffect`](hooks/efectes-i-useeffect.md). Serveixen per executar codi després d'un render: fetch, intervals, subscripcions, etc.
   * [`useRef`](hooks/useref.md). **Referències mutables**. Enmagatzemem valors persistents que **causen no-render**.
@@ -151,29 +144,6 @@ function FormButton() {
   * Permet **validació en temps real** abans de l'enviament
   * Facilita **resets** i **actualtizacions**
   * Manté l'estat del formulari dins de React, sense necessitat de modificar directament
-
-```jsx
-import { useState } from 'react'
-
-function Formulari() {
-  const [text, setText] = useState('')
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log('Enviat:', text)
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input value={text} onChange={e => setText(e.target.value)} />
-      <button>Enviar</button>
-    </form>
-  )
-}
-```
-
-* L'input obté el seu valor de l'estat `text`.
-* `onChange` actualitza l'estat cada vegada que l'usuari escriu.
 
 ### [Peticions HTTP](consultes-http-i-api/peticions-http.md)
 
