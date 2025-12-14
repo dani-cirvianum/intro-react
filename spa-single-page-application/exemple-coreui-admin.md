@@ -225,3 +225,243 @@ const DefaultLayout = () => {
 export default DefaultLayout
 
 ```
+
+### components/AppContent.jsx
+
+```jsx
+import React, { Suspense } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { CContainer, CSpinner } from '@coreui/react'
+
+// routes config
+import routes from '../routes'
+
+const AppContent = () => {
+  return (
+    <CContainer className="px-4" lg>
+      <Suspense fallback={<CSpinner color="primary" />}>
+        <Routes>
+          {routes.map((route, idx) => {
+            return (
+              route.element && (
+                <Route
+                  key={idx}
+                  path={route.path}
+                  exact={route.exact}
+                  name={route.name}
+                  element={<route.element />}
+                />
+              )
+            )
+          })}
+          <Route path="/" element={<Navigate to="dashboard" replace />} />
+        </Routes>
+      </Suspense>
+    </CContainer>
+  )
+}
+
+export default React.memo(AppContent)
+
+```
+
+### components/AppFooter.jsx
+
+```jsx
+import React from 'react'
+import { CFooter } from '@coreui/react'
+
+const AppFooter = () => {
+  return (
+    <CFooter className="px-4">
+      <div>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          2DAW
+        </a>
+        <span className="ms-1">&copy; 2025 2DAW.</span>
+      </div>
+      <div className="ms-auto">
+        <span className="me-1">Powered by</span>
+        <a href="https://coreui.io/react" target="_blank" rel="noopener noreferrer">
+          CoreUI React Admin &amp; Dashboard Template
+        </a>
+      </div>
+    </CFooter>
+  )
+}
+
+export default React.memo(AppFooter)
+```
+
+### components/AppHeader.jsx
+
+```jsx
+import { useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { CContainer, CHeader, CHeaderNav, CHeaderToggler, CNavLink, CNavItem} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+import {cilMenu} from '@coreui/icons'
+//import { AppBreadcrumb } from './index'
+
+const AppHeader = () => {
+  const headerRef = useRef()
+ 
+  const dispatch = useDispatch()
+  const sidebarShow = useSelector((state) => state.sidebarShow)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      headerRef.current &&
+        headerRef.current.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0)
+    }
+
+    document.addEventListener('scroll', handleScroll)
+    return () => document.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <CHeader position="sticky" className="mb-4 p-0" ref={headerRef}>
+      <CContainer className="border-bottom px-4" fluid>
+        <CHeaderToggler
+          onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
+          style={{ marginInlineStart: '-14px' }}
+        >
+          <CIcon icon={cilMenu} size="lg" />
+        </CHeaderToggler>
+        <CHeaderNav className="d-none d-md-flex">
+          <CNavItem>
+            <CNavLink to="/dashboard" as={NavLink}>
+              Dashboard
+            </CNavLink>
+          </CNavItem>
+          <CNavItem>
+            <CNavLink to="/users" as={NavLink}>Users</CNavLink>
+          </CNavItem>
+        </CHeaderNav>
+        
+      </CContainer>
+      <CContainer className="px-4" fluid>
+  {/*      <AppBreadcrumb />
+  */}
+      </CContainer>
+    </CHeader>
+  )
+}
+
+export default AppHeader
+
+```
+
+### components/AppSidebar.jsx
+
+```jsx
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import {CCloseButton,CSidebar,CSidebarFooter,CSidebarHeader,CSidebarToggler,} from '@coreui/react'
+import { AppSidebarNav } from './AppSidebarNav'
+import navigation from '../_nav'
+
+const AppSidebar = () => {
+  const dispatch = useDispatch()
+  const unfoldable = useSelector((state) => state.sidebarUnfoldable)
+  const sidebarShow = useSelector((state) => state.sidebarShow)
+
+  return (
+    <CSidebar className="border-end" colorScheme="dark" position="fixed" unfoldable={unfoldable}
+      visible={sidebarShow} onVisibleChange={(visible) => {
+        dispatch({ type: 'set', sidebarShow: visible })
+      }}>
+    	<CSidebarHeader className="border-bottom">
+        	<CCloseButton className="d-lg-none" onClick={() => dispatch({ type: 'set', sidebarShow: false })} />
+      	</CSidebarHeader>
+      	<AppSidebarNav items={navigation} />
+      	<CSidebarFooter className="border-top d-none d-lg-flex">
+        	<CSidebarToggler onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })} />
+      </CSidebarFooter>
+    </CSidebar>
+  )
+}
+
+export default React.memo(AppSidebar)
+
+```
+
+### components/AppSidebarNav.jsx
+
+```jsx
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import SimpleBar from 'simplebar-react'
+import 'simplebar-react/dist/simplebar.min.css'
+
+import { CBadge, CNavLink, CSidebarNav } from '@coreui/react'
+
+export const AppSidebarNav = ({ items }) => {
+  const navLink = (name, icon, badge, indent = false) => {
+    return (
+      <>
+        {icon
+          ? icon
+          : indent && (
+              <span className="nav-icon">
+                <span className="nav-icon-bullet"></span>
+              </span>
+            )}
+        {name && name}
+        {badge && (
+          <CBadge color={badge.color} className="ms-auto" size="sm">
+            {badge.text}
+          </CBadge>
+        )}
+      </>
+    )
+  }
+
+  const navItem = (item, index, indent = false) => {
+    const { component, name, badge, icon, ...rest } = item
+    const Component = component
+    return (
+      <Component as="div" key={index}>
+        {rest.to || rest.href ? (
+          <CNavLink
+            {...(rest.to && { as: NavLink })}
+            {...(rest.href && { target: '_blank', rel: 'noopener noreferrer' })}
+            {...rest}
+          >
+            {navLink(name, icon, badge, indent)}
+          </CNavLink>
+        ) : (
+          navLink(name, icon, badge, indent)
+        )}
+      </Component>
+    )
+  }
+
+  const navGroup = (item, index) => {
+    const { component, name, icon, items, to, ...rest } = item
+    const Component = component
+    return (
+      <Component compact as="div" key={index} toggler={navLink(name, icon)} {...rest}>
+        {items?.map((item, index) =>
+          item.items ? navGroup(item, index) : navItem(item, index, true),
+        )}
+      </Component>
+    )
+  }
+
+  return (
+    <CSidebarNav as={SimpleBar}>
+      {items &&
+        items.map((item, index) => (item.items ? navGroup(item, index) : navItem(item, index)))}
+    </CSidebarNav>
+  )
+}
+
+AppSidebarNav.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.any).isRequired,
+}
+
+```
