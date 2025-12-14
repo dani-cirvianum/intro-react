@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Exemple React + Vite + React-router + CoreUI
 
 ## SPA React + Vite + CoreUI+Auth
