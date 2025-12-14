@@ -16,13 +16,13 @@ Quan l’aplicació creix:
 
 **Redux** centralitza l’estat global en un únic lloc (`store`) i permet accedir-hi des de qualsevol component de manera controlada.
 
-### Conceptes bàsics
+## Conceptes bàsics
 
-#### `Store`
+### `Store`
 
 És l’objecte que conté tot l’**estat global de l’aplicació**.
 
-#### Action
+### Action
 
 És un objecte que descriu què ha passat:
 
@@ -37,14 +37,14 @@ Quan l’aplicació creix:
 * altres propietats (user, logged, etc.) contenen dades per modificar l’estat
 * **No modifica** l’estat per ell mateix, només informa què ha passat
 
-#### Reducer
+### Reducer
 
 * És una funció que decideix com canvia l’estat.
 * No modifica directament l’estat original
 * No fa crides externes ni té efectes secundaris
 * Sempre retorna un nou objecte d’estat
 
-#### Flux de dades
+### Flux de dades
 
 1. Un component fa dispatch(action)
 2. Redux envia l’acció al reducer
@@ -53,7 +53,7 @@ Quan l’aplicació creix:
 
 React es re-renderitza automàticament
 
-### Exemple: changeState reducer
+## Exemple: changeState reducer
 
 Aquest és un exemple molt simple i flexible que es pot utilitzar per actualitzar qualsevol part de l’estat global:
 
@@ -96,20 +96,20 @@ default:
 
 Si el tipus d’acció no és `set`, retorna l’estat tal com està.
 
-### React-Redux: connectant Redux amb React
+## React-Redux: connectant Redux amb React
 
 * Redux no forma React. És javascript "pur"
 * Per utilitzar juntament amb react s'utilitza `react-redux`.
 
-#### Funcionalitats principals
+### Funcionalitats principals
 
 * **Provider**: injecta l'`store` a l’arrel de l’aplicació
 * **useSelector()**: llegeix dades del store
 * **useDispatch()**: envia les accions
 
-### Exemple complet amb changeState
+## Exemple complet amb `changeState`
 
-#### store.js
+### store.js
 
 ```jsx
 // store.js
@@ -120,7 +120,7 @@ const initialState = { user: null, logged: false };
 export const store = createStore(changeState, initialState);
 ```
 
-#### main.jsx
+### main.jsx
 
 ```jsx
 import React from 'react'
@@ -136,7 +136,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-#### Component React
+### Component React
 
 ```jsx
 import { useSelector, useDispatch } from 'react-redux'
@@ -170,7 +170,7 @@ function App() {
 export default App
 ```
 
-### Instal·lació en un projecte Vite
+## Instal·lació en un projecte Vite
 
 ```bash
 npm install redux react-redux

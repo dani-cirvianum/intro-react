@@ -21,7 +21,7 @@ Exemples d’SPAs:
 
 Tot funciona dins la **mateixa pàgina**, però l’usuari té la **sensació que navega per diferents pantalles**.
 
-### Diferència entre web tradicional i SPA
+## Diferència entre web tradicional i SPA
 
 Les Webs tradicionals:
 
@@ -35,7 +35,7 @@ Una SPA amb React:
 * React decideix què es mostra
 * El backend només envia i rep dades (normalment JSON)
 
-### Què fa React dins d’una SPA?
+## Què fa React dins d’una SPA?
 
 React s’encarrega de:
 
@@ -56,9 +56,9 @@ function Header() {
 
 Cada part de la pantalla és un component independent.
 
-### Com funciona una SPA en React (pas a pas)
+## Com funciona una SPA en React (pas a pas)
 
-#### Càrrega inicial
+### Càrrega inicial
 
 El navegador carrega:
 
@@ -73,7 +73,7 @@ Exemple:
 
 React “entra” dins aquest `div` i "controla" tota la web.
 
-#### Components
+### Components
 
 La web es construeix amb components:
 
@@ -90,7 +90,7 @@ function App() {
 
 Si alguna dada canvia, React actualitza només aquella part.
 
-#### Navegació sense recàrrega (React Router)
+### Navegació sense recàrrega (React Router)
 
 Encara que vegem URLs diferents, no es carrega cap pàgina nova.
 
@@ -104,7 +104,7 @@ Quan anem a `/alumnes`:
 * React mostra el component `<Alumnes />`
 * La pàgina **no es recarrega**
 
-### D’on provenen les dades?
+## D’on provenen les dades?
 
 En una SPA:
 
@@ -123,7 +123,7 @@ Exemple:
 
 React "demana" aquestes dades i les mostra.
 
-### Què és l’estat (`state`)?
+## Què és l’estat (`state`)?
 
 L’estat són dades que **poden canviar** i afecten la pantalla.
 
@@ -138,7 +138,7 @@ Si l’estat canvia:
 * React actualitza la pantalla automàticament
 * Això **evita haver de manipular el DOM manualment**.
 
-### Exemple procés de Login i control d’accés
+## Exemple procés de Login i control d’accés
 
 En una SPA:
 
@@ -155,14 +155,14 @@ if (!loguejat) {
 }
 ```
 
-### Alguns avantatges
+## Alguns avantatges
 
 * Aplicacions actuals
 * Separació frontend / backend
 * Ideal per CRUDs
 * Reutilització de components
 
-### Alguns inconvenients
+## Alguns inconvenients
 
 * Depèn molt de JavaScript
 * SEO més complicat

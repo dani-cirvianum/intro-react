@@ -6,9 +6,9 @@
 * Permet definir un layout comú (header, sidebar, footer, etc.) i que les rutes anidades apareguin en un punt concret del component.
 * Sense `<Outlet />`, les rutes fills no es mostraran.
 
-### Exemple bàsic
+## Exemple bàsic
 
-* Definició de rutes
+### Definició de rutes
 
 ```jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -34,7 +34,7 @@ function App() {
 }
 ```
 
-* Layout amb `<Outlet />`
+### Layout amb `<Outlet />`
 
 ```jsx
 import { Outlet, Link } from "react-router-dom";
@@ -66,7 +66,7 @@ export default Layout;
 * Quan es va a `/about`, React Router renderitza el component About dins del `<Outlet />` del Layout.
 * És la base per fer dashboards, panells d’administració o qualsevol aplicació amb seccions.
 
-### Exemple: un Dashboard amb subrutes:
+## Exemple: un Dashboard amb subrutes:
 
 ```jsx
 <Route path="/dashboard" element={<DashboardLayout />}>
