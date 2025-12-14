@@ -18,6 +18,7 @@
 * [UseId](hooks/useid.md)
 * [React Memo](hooks/react-memo.md)
 * [PropTypes](hooks/proptypes.md)
+* [React Suspense](hooks/react-suspense.md)
 
 ## Consultes Http i API
 
