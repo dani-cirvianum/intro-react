@@ -49,7 +49,7 @@ src/
 * **i18n.js**: Configuració d’i18next.
 * **App.jsx**: Components React que utilitzen les traduccions.
 
-### Fitxers de traducció
+## Fitxers de traducció
 
 ```javascript
 en.json
@@ -75,7 +75,7 @@ ca.json
 }
 ```
 
-### Configuració d’i18next
+## Configuració d’i18next
 
 ```jsx
 // src/i18n.js
@@ -102,13 +102,13 @@ i18n
 export default i18n;
 ```
 
-### Modificació main.jsx
+## Modificació main.jsx
 
 ```jsx
 import './i18n.js' // Important
 ```
 
-### Ús a components React
+## Ús a components React
 
 ```jsx
 // src/App.jsx
@@ -145,7 +145,7 @@ export default function App() {
   * O es pot utilitzar fallbackLng per buscar en un idioma alternatiu.
 * Opcionalment, activar `saveMissing: true` per detectar claus no definides a dev.
 
-### Recomanacions
+## Recomanacions
 
 * Organitzar JSON per seccions: common, auth, navbar, etc.
 * Crear fitxers JSON separats per idioma per mantenir el projecte net.
