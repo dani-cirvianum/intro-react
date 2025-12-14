@@ -17,6 +17,7 @@
 * [Hooks personalitzats](hooks/hooks-personalitzats.md)
 * [UseId](hooks/useid.md)
 * [React Memo](hooks/react-memo.md)
+* [PropTypes](hooks/proptypes.md)
 
 ## Consultes Http i API
 
