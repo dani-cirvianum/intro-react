@@ -43,6 +43,7 @@
 * [Redux](spa-single-page-application/redux.md)
 * [Exemple SPA amb Autenticació](spa-single-page-application/exemple-spa-amb-autenticacio.md)
 * [Exemple React + Vite + React-router + CoreUI](spa-single-page-application/exemple-react-+-vite-+-react-router-+-coreui.md)
+* [Exemple Auth + Provider](spa-single-page-application/exemple-auth-+-provider.md)
 
 ## Utils
 
