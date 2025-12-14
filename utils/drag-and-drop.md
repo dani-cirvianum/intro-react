@@ -90,7 +90,7 @@ export default function DropZone({ onDrop }) {
         padding: "10px",
       }}
     >
-      <p>Arrossega aquí 👇</p>
+      <p>Arrossega aquí</p>
     </div>
   );
 }
