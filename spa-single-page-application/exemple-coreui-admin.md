@@ -465,3 +465,43 @@ AppSidebarNav.propTypes = {
 }
 
 ```
+
+## Component Principal
+
+### src/App.jsx
+
+```jsx
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import DefaultLayout from './layout/DefaultLayout'
+import routes from './routes'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+
+          {routes.map((route, idx) => (
+            <Route
+              key={idx}
+              path={route.path}
+              element={<route.element />}
+            />
+          ))}
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
+
+```
+
+## Executar l'aplicació
+
+```bash
+npm run dev
+```
+
