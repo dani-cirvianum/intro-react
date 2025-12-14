@@ -1,6 +1,6 @@
 # Introducció React
 
-### Requisits previs
+## Requisits previs
 
 * Llibreries i coneixements mínims
   * HTML
@@ -16,7 +16,7 @@
 Podrem considerar que React és un "JavaScript modern", tot i que aquesta definicio no és del tot correcte.
 {% endhint %}
 
-### Què és React?
+## Què és React?
 
 * És una biblioteca de Javascript utilitzada per crear interfícies d'usuari interactives i declaratives.
 * Els seus principals punts clau són:
@@ -28,7 +28,7 @@ Podrem considerar que React és un "JavaScript modern", tot i que aquesta defini
 
 React permet crear aplicacions web **ràpides, escalables i fàcilment mantenibles**, centrant-se en la UI i la reutilització de components.
 
-### Entorn de treball
+## Entorn de treball
 
 * Per aquesta introducció utilitzarem `Node` i `Vite`.
 
@@ -39,7 +39,7 @@ npm install
 npm run dev
 ```
 
-### Estructura d'un projecte React
+## Estructura d'un projecte React
 
 * Organització típica
   * src
@@ -61,7 +61,7 @@ createRoot(document.getElementById('root')).render(<App />)
 * Importem `App` (component principal) i CSS global.
 * Creem el root i renderitzem `<App />` dins l'element amb id `root` de l'index.html.
 
-### [Components](components/components-i-propietats.md#components)
+## [Components](components/components-i-propietats.md#components)
 
 Un **component** de React és la unitat bàsica de construcció d'una aplicació React.
 
@@ -73,7 +73,7 @@ Enlloc de crear una pàgina HTML sencera, React divideix la interfície en **pec
 En React, **tot és un component**: botons, formularis, capçaleres, pàgines senceres, etc.
 {% endhint %}
 
-#### Per què utilitzar components?
+### Per què utilitzar components?
 
 Els components permeten:
 
@@ -83,7 +83,7 @@ Els components permeten:
 * Facilitar proves i depuració
 * Organitzar la UI de forma modular
 
-### Hooks
+## Hooks
 
 * Són **funcions especials** de React que permeten als components:
   * tenir **estat**
@@ -94,13 +94,13 @@ Abans de l'aparició dels Hooks, aquestes funcions només existien als **compone
 
 Els Hooks permeten "enganxar" funcionalitats de React dintre de funcions o altres components.
 
-#### Per què existeixen?
+### Per què existeixen?
 
 * Permeten reutilitzar lògica entre components.
 * Fan que els components siguin més petits i llegibles
 * Milloren la separació de responsabilitats
 
-#### A tenir en compte
+### A tenir en compte
 
 * Només es poden cridar
   * dins de components funcionals
@@ -109,19 +109,19 @@ Els Hooks permeten "enganxar" funcionalitats de React dintre de funcions o altre
   * al **nivell superior** del component
   * No es poden cridar dintre `If`, `for`, `while`.
 
-#### Alguns tipus de Hooks
+### Alguns tipus de Hooks
 
 * Hi ha diferents tipus de `Hooks` alguns són:  &#x20;
   * [`State`i `useState`](hooks/state-i-usestate.md). **Estat local**. Permeten gestionar l'estat dintre d'un component funcional. Quan es modifica l'estat, el component es torna a renderitzar.
   * [`effect`i `useEffect`](hooks/efectes-i-useeffect.md). Serveixen per executar codi després d'un render: fetch, intervals, subscripcions, etc.
   * [`useRef`](hooks/useref.md). **Referències mutables**. Enmagatzemem valors persistents que **causen no-render**.
 
-### [React Router](react-router/react-router.md)
+## [React Router](react-router/react-router.md)
 
 * És una llibreria per a React que permet gestionar la navegació dins d'una **SPA** (Single Page Application) sense recarregar la pàgina.&#x20;
 * En funció de la URL, React Router decideix **quin component s'ha de renderitzar**.
 
-### Bones pràctiques, testing i depuració
+## Bones pràctiques, testing i depuració
 
 * Bones pràctiques:
   * Components petits i amb una sola responsabilitat.
@@ -151,7 +151,7 @@ test('crida el onClick quan es fa clic', () => {
 * Com pujar l'app a Internet.
   * Connecta el repo i configura build command (`npm run build` per Vite) i output (`dist` per Vite).
 
-### Recursos
+## Recursos
 
 * Documentació oficial React: https://reactjs.org
 * React Router docs: https://reactrouter.com
