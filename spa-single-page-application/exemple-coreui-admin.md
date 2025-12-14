@@ -175,3 +175,53 @@ const Users = () => {
 export default Users
 
 ```
+
+## Definició de les rutes
+
+### src/routes.jsx
+
+```jsx
+import Dashboard from './views/Dashboard'
+import Users from './views/Users'
+
+const routes = [
+  { path: '/dashboard', element: Dashboard },
+  { path: '/users', element: Users },
+]
+
+export default routes
+
+```
+
+## Disseny de la plantilla (CoreUI)
+
+### layout/DefaultLayout.jsx
+
+* És el fitxer principal de la plantilla
+* Defineix l'estructura, opcions de navegació i els continguts
+
+```jsx
+import AppSidebar from '../components/AppSidebar'
+import AppHeader from '../components/AppHeader'
+import AppFooter from '../components/AppFooter'
+import AppContent from '../components/AppContent'
+
+const DefaultLayout = () => {
+  return (
+    <div>
+      <AppSidebar />
+
+      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+        <AppHeader />
+        <div className="body flex-grow-1 px-3">
+          <AppContent />
+        </div>
+        <AppFooter />
+      </div>
+    </div>
+  )
+}
+
+export default DefaultLayout
+
+```
