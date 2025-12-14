@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Exemple: CoreUI Admin
 
 En aquest exemple es crearà una aplicació basada en CoreuUI Free Template
@@ -79,9 +83,44 @@ import store from './store'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-	<Provider store={store}>
+	  <Provider store={store}>
     	<App />
-	</Provider>
+	  </Provider>
   </StrictMode>,
 )
 ```
+
+### src/\_nav.jsx
+
+* Aquest fitxer conté les rutes de navegació que s'utilitzaran en l'aplicació.
+* Es defineixen les rutes, els icones que es mostraran i el component encarregat de tractar-les
+
+```jsx
+import React from 'react'
+import CIcon from '@coreui/icons-react'
+import { cilUser, cilSpeedometer} from '@coreui/icons'
+import { CNavItem, CNavTitle } from '@coreui/react'
+
+const _nav = [
+  {
+    component: CNavItem,
+    name: 'Dashboard',
+    to: '/dashboard',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    badge: {
+      color: 'info',
+      text: 'Home',
+    },
+  },
+  {
+    component: CNavItem,
+    name: 'Usuaris',
+    to: '/users',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  }
+ 
+]
+
+export default _nav
+```
+
