@@ -5,11 +5,11 @@
 * Permet mostrar diferents elements o components en funció de l'estat actual de l'aplicació, les props que rep, o qualsevol altra condició lògica.
 * El renderitzat condicional és el que fa que lesaplicacions de React siguin dinàmiques i responsives als canvis d'estat!
 
-### Tècniques de Renderitzat Condicional
+## Tècniques de Renderitzat Condicional
 
 Hi ha diverses maneres d'implementar la lògica condicional dins del JSX de React.
 
-#### Amb l'Operador Ternari (? :)
+### Amb l'Operador Ternari (? :)
 
 * És la tècnica més bàsica i clara per mostrar una de dues opcions.
 * És ideal quan tens una condició simple i vols triar entre dos blocs de codi (un si és veritat, l'altre si és fals).
@@ -30,7 +30,7 @@ function MissatgeUsuari({ estaLogat }) {
 }
 ```
 
-#### Amb l'Operador Lògic && (Short-Circuiting)
+### Amb l'Operador Lògic && (Short-Circuiting)
 
 * S'utilitza quan només vols renderitzar si la condició és veritable, i no es vol mostrar res si és falsa.
 * Si l'expressió de l'esquerra és falsa, React ignora l'expressió de la dreta i no renderitza res.
@@ -50,7 +50,7 @@ function Notificacions({ count }) {
 }
 ```
 
-#### Amb Sentències if/else (Fora de JSX)
+### Amb Sentències if/else (Fora de JSX)
 
 Quan la lògica condicional es torna massa complexa (amb moltes condicions o blocs de codi grans), és millor moure la lògica condicional fora del bloc return de JSX.
 
@@ -75,7 +75,7 @@ function EstatDeCarrega({ dades, carregant }) {
 }
 ```
 
-#### Elements Condicionals o Llistes
+### Elements Condicionals o Llistes
 
 Es pot assignar un component sencer a una variable i després incloure aquesta variable dins del JSX.
 
@@ -100,7 +100,7 @@ function PanellAdmin({ rol }) {
 }
 ```
 
-### Resum
+## Resum
 
 * **Ternari (`? :`)**: Perfecte per escollir entre dues opcions simples dins d'una sola línia de JSX.
 * **Short-Circuiting (`&&`)**: Ideal quan vols mostrar quelcom només si es compleix la condició.
