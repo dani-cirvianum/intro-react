@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Exemple: CoreUI Admin
 
 En aquest exemple es crearà una aplicació basada en CoreuUI Free Template
