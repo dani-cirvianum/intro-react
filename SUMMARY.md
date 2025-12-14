@@ -16,6 +16,7 @@
 * [UseRef](hooks/useref.md)
 * [Hooks personalitzats](hooks/hooks-personalitzats.md)
 * [UseId](hooks/useid.md)
+* [React Memo](hooks/react-memo.md)
 
 ## Consultes Http i API
 
