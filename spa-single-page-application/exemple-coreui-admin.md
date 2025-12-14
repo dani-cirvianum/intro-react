@@ -29,7 +29,7 @@ npm install redux react-redux simplebar-react
 npm install @coreui/react @coreui/icons @coreui/icons-react
 ```
 
-## Modificació de fitxers
+## Fitxers de configuració
 
 ### src/store.js
 
@@ -124,3 +124,54 @@ const _nav = [
 export default _nav
 ```
 
+## Components principals
+
+### views/Dashboard.jsx
+
+Component que mostra el `dashboard` (pàgina per defecte)
+
+```jsx
+import { CRow, CCol, CWidgetStatsA } from '@coreui/react'
+
+const Dashboard = () => {
+  return (
+    <CRow>
+      <CCol sm={6} lg={3}>
+        <CWidgetStatsA
+          className="mb-4"
+          value="10"
+          title="Usuaris"
+        />
+      </CCol>
+
+      <CCol sm={6} lg={3}>
+        <CWidgetStatsA
+          className="mb-4"
+          value="5"
+          title="Posts"
+        />
+      </CCol>
+    </CRow>
+  )
+}
+
+export default Dashboard
+
+
+```
+
+### views/Users.jsx
+
+```jsx
+const Users = () => {
+  return (
+    <>
+      <h1>Gestió d’usuaris</h1>
+      <p>Aquí hi anirà el CRUD</p>
+    </>
+  )
+}
+
+export default Users
+
+```
