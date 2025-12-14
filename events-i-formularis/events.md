@@ -7,7 +7,7 @@
   * Noms d'Esdeveniments: Els noms dels esdeveniments es passen en format camelCase (p. ex., onClick, onChange, onSubmit) en lloc de minúscules (onclick).
   * Passar Funcions: Es passa una funció com a handler d'esdeveniment, en lloc d'una cadena de text.
 
-### Sintaxi Bàsica
+## Sintaxi Bàsica
 
 A HTML, es faria:
 
@@ -37,7 +37,7 @@ function NomComponent() {
 }
 ```
 
-### L'Objecte d'Esdeveniment `Sintètic`
+## Esdeveniment `Sintètic`
 
 * Quan es dispara un esdeveniment (p. ex., un clic), React crea un `SyntheticEvent` (Esdeveniment Sintètic).
 * Aquest objecte és un `wrapper` (embolcall) al voltant de l'esdeveniment natiu del navegador. La seva funció principal és:
@@ -46,7 +46,7 @@ function NomComponent() {
 
 ❗ Nota: Si necessites accedir a l'esdeveniment natiu del navegador, pots utilitzar event.nativeEvent.
 
-### Passar Arguments als Handlers
+## Passar Arguments als Handlers
 
 * Es poden passar arguments addicionals a la funció handler (a més de l'esdeveniment mateix).
 * S'utilitza una funció fletxa anònima o el mètode `bind` (tot i que la funció fletxa és la més utilitzada):
@@ -70,7 +70,7 @@ function Producte({ nom, id }) {
 }
 ```
 
-#### Evitar el comportament per defecte
+## Evitar el comportament per defecte
 
 En esdeveniments de formularis (com onSubmit), es crida `event.preventDefault()` per evitar que el navegador recarregui la pàgina, que és el seu comportament per defecte quan s'envia un formulari HTML.
 
@@ -88,7 +88,7 @@ return (
 );
 ```
 
-### Gestió d'Esdeveniments en Formularis (onChange)
+## Gestió d'Esdeveniments en Formularis (onChange)
 
 * `onChange`, s'utilitza per capturar el que l'usuari escriu als camps de formulari i actualitzar l'estat del component.
 
@@ -110,11 +110,11 @@ function CampInput() {
 }
 ```
 
-### **Exemple**: Formulari de Contacte Senzill
+## **Exemple**: Formulari de Contacte Senzill
 
 * Formulari per capturar el nom i el correu electrònic.
 
-#### Preparació de l'Estat
+### Preparació de l'Estat
 
 * Utilitzar un sol objecte d'estat per gestionar tots els valors del formulari.
 
@@ -130,7 +130,7 @@ function FormulariInscripcio() {
   // ... (continua a la següent secció)
 ```
 
-#### Gestió dels Canvis (`onChange`)
+### Gestió dels Canvis (`onChange`)
 
 * Crear una única funció handleChange que gestiona l'actualització de qualsevol camp del formulari utilitzant la propietat name de l'element d'entrada (input).
 
@@ -152,7 +152,7 @@ function FormulariInscripcio() {
 // ... (continua a la següent secció)
 ```
 
-#### Gestió de l'Enviament (`onSubmit`)
+### Gestió de l'Enviament (`onSubmit`)
 
 * La funció handleSubmit s'executarà quan es faci clic al botó d'enviament (o apretar Enter).
 * El pas més important és cridar e.preventDefault().
@@ -172,7 +172,7 @@ function FormulariInscripcio() {
 // ... (continua a la següent secció)
 ```
 
-#### La Renderització del Component
+### La Renderització del Component
 
 * Enllaçar les funcions i l'estat als elements del formulari:
 
