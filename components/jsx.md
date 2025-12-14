@@ -9,9 +9,9 @@
 * Un navegador web no pot llegir directament JSX.
 * Quan s'escriu codi JSX, eines de compilació el tradueixen a crides a la funció `React.createElement()` que els navegadors sí que poden processar.
 
-### Regles i característiques clau del JSX
+## Regles i característiques clau del JSX
 
-#### Incrustar Expressions JavaScript
+### Incrustar Expressions JavaScript
 
 Es pots incrustar qualsevol expressió de JavaScript dins del JSX utilitzant claus `{}`:
 
@@ -29,7 +29,7 @@ Dins de les claus, es poden fer:
 * cridar funcions
 * utilitzar variables
 
-#### Classes CSS a JSX
+### Classes CSS a JSX
 
 * No es pot utilitzar l'atribut `class` com a HTML.
 * S'ha d'utilitzar `className` perquè `class` és una paraula reservada a JavaScript.
@@ -40,13 +40,13 @@ Dins de les claus, es poden fer:
 </div>
 ```
 
-#### Tancament d'etiquetes
+### Tancament d'etiquetes
 
 * Totes les etiquetes han de ser tancades, incloses les etiquetes autotancables (com `<br>` o `<img>`).
 * Correcte: `<br />` o `<img src="..." alt="..." />`
 * Incorrecte (HTML): `<br>` o `<img>`
 
-#### Només un element arrel
+### Només un element arrel
 
 * Cada bloc de JSX (per exemple, dins d'un `return` de component) només pot retornar un únic element arrel.
 * Si cal agrupar múltiples elements sense afegir un `div` extra al DOM, es pot utilitzar un Fragment (`<>...</>`)
@@ -61,6 +61,6 @@ return (
 );
 ```
 
-#### Atributs en `camelCase`
+### Atributs en `camelCase`
 
 * La majoria dels atributs del DOM (excepte `aria-*` i `data-*`) es passen en format `camelCase`.
