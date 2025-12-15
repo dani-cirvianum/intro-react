@@ -15,7 +15,7 @@
 ### Instal·lació
 
 ```bash
-npm install react-helmet-async
+npm install react-helmet-async --legacy-peer-deps
 ```
 
 ### Incloure el HelmetProvider
