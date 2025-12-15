@@ -96,11 +96,12 @@ export function AuthProvider({ children }) {
 
 ```jsx
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function PrivateRoute() {
-  const { user } = useAuth();
-
+ 
+  const { user } = useContext(AuthContext);  
   if (!user) {
     return <Navigate to="/login" replace />;
   }
@@ -108,6 +109,8 @@ export default function PrivateRoute() {
   return <Outlet />;
 }
 ```
+
+###
 
 ### pages/Login.jsx
 
