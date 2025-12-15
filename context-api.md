@@ -2,8 +2,6 @@
 
 ## React Context API
 
-### Què és el Context API?
-
 * El Context API és un hook de React per compartir estat entre components sense haver de passar propietats manualment.
 * En lloc d’això:
   * Creem un context
@@ -16,9 +14,9 @@
   * Carret de compra
 * No és ideal quan es tracta d'una aplicació altament mutable (que canvia constantment) i que requereix molta optimització.
 
-### Exemples bàsics
+## Exemples bàsics
 
-#### Crear un context
+### Crear un context
 
 ```jsx
 // context/ThemeContext.js
@@ -27,7 +25,7 @@ import { createContext } from "react";
 export const ThemeContext = createContext();
 ```
 
-#### Afegir el Provider
+### Afegir el Provider
 
 ```jsx
 // context/ThemeProvider.jsx
@@ -48,7 +46,7 @@ export default function ThemeProvider({ children }) {
 }
 ```
 
-#### Consumir el context
+### Consumir el context
 
 ```jsx
 // components/Header.jsx
@@ -67,7 +65,7 @@ export default function Header() {
 }
 ```
 
-#### Envoltar/encapsular la app
+### Envoltar/encapsular la app
 
 ```jsx
 // main.jsx
@@ -80,7 +78,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-### Composició de múltiples contexts
+## Composició de múltiples contexts
 
 * Pot haver-hi múltiples contexts:
 
@@ -94,9 +92,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-### Exemple amb autenticació
+## Exemple amb autenticació
 
-#### Crear el context
+### Crear el context
 
 ```jsx
 // context/AuthContext.js
@@ -105,7 +103,7 @@ import { createContext } from "react";
 export const AuthContext = createContext();
 ```
 
-#### Provider amb user i login/logout
+### Provider amb user i login/logout
 
 ```jsx
 // context/AuthProvider.jsx
@@ -126,7 +124,7 @@ export default function AuthProvider({ children }) {
 }
 ```
 
-#### Com utilitzar-lo
+### Com utilitzar-lo
 
 ```jsx
 // components/Dashboard.jsx
@@ -147,7 +145,7 @@ export default function Dashboard() {
 }
 ```
 
-### Estructura de fitxers recomanada
+## Estructura de fitxers recomanada
 
 ```
 src/
@@ -168,7 +166,7 @@ export { AuthContext } from "./AuthContext";
 export { default as AuthProvider } from "./AuthProvider";
 ```
 
-### Context + Fetch API
+## Context + Fetch API
 
 ```jsx
 // context/UserProvider.jsx
@@ -201,7 +199,7 @@ function UserList() {
 }
 ```
 
-### Custom Hook Pattern
+## Custom Hook Pattern
 
 * Evita haver d’importar el context + useContext cada cop:
 
@@ -219,7 +217,7 @@ export default function useAuth() {
 const { user, login } = useAuth();
 ```
 
-### Quan NO utilitzar Context
+## Quan NO utilitzar Context
 
 * No s'ha d'utilitzar quan:
   * L'estat canvia molt sovint
