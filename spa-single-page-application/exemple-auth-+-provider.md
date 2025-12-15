@@ -199,7 +199,7 @@ export default function Dashboard() {
 		</div>
     </div>
   );
-}}
+}
 ```
 
 ### pages/Settings.jsx
