@@ -6,6 +6,8 @@
 **COMPTE!!!**: A partir de la versió 19 de React, ja porta incorporat les etiquetes del `head` i es poden utilitzar directament sense utilitzar Hemlet.
 {% endhint %}
 
+[Anar a la documentació per la versió 19](helmet.md#us-en-la-versio-19-de-react)
+
 * És una llibreria que permet gestionar fàcilment el contingut de l'etiqueta `<head>` dins d’una aplicació React.
 * És especialment útil en SPAs (Single Page Applications), on cada vista pot necessitar un títol, metadades o enllaços diferents per a SEO i xarxes socials.
 
