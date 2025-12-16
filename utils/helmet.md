@@ -2,6 +2,10 @@
 
 ## React Hemlet
 
+{% hint style="danger" %}
+**COMPTE!!!**: A partir de la versió 19 de React, ja porta incorporat les etiquetes del `head` i es poden utilitzar directament sense utilitzar Hemlet.
+{% endhint %}
+
 * És una llibreria que permet gestionar fàcilment el contingut de l'etiqueta `<head>` dins d’una aplicació React.
 * És especialment útil en SPAs (Single Page Applications), on cada vista pot necessitar un títol, metadades o enllaços diferents per a SEO i xarxes socials.
 
@@ -129,3 +133,66 @@ function Page({ title, children }) {
 }
 ```
 
+## Ús en la versió 19 de React
+
+Es pot escriure directament etiquetes del `<head>` dins dels components React:
+
+```jsx
+function PaginaInici() {
+  return (
+    <>
+      <title>Pàgina d'inici</title>
+      <meta name="description" content="Benvinguts a la meva web" />
+      <meta name="robots" content="index, follow" />
+
+      <h1>Hola món</h1>
+    </>
+  );
+}
+```
+
+React 19:
+
+* Mou automàticament `<title>`, `<meta>`, `<link>`, etc. al `<head>`
+* Actualitza el contingut quan el component es munta/desmunta
+* Gestiona els duplicats correctament: es mostra els continguts de l'útim components a carregar-se
+
+### Exemples
+
+#### Canviar el títol segons la pàgina
+
+```jsx
+function Perfil() {
+  return (
+    <>
+      <title>Perfil d'usuari</title>
+      <meta name="description" content="Àrea personal de l'usuari" />
+      <h2>El meu perfil</h2>
+    </>
+  );
+}
+```
+
+#### Afegir favicon
+
+```jsx
+function App() {
+  return (
+    <>
+      <link rel="icon" href="/favicon.ico" />
+      <Outlet />
+    </>
+  );
+}
+```
+
+### Què passa amb react-helmet?
+
+* No és necessari
+* No està alineat amb React 19
+* Afegeix complexitat innecessària
+
+### I si tenim un projecte antic (anterior v19)?:
+
+* Podem eliminar react-helmet
+* Substituir cada `<Helmet>` per etiquetes natives
